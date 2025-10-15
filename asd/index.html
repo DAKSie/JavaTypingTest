@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Typing Test</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+    <div id="nameModal" style="display: none;">
+        <div class="modal-content">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="userName" placeholder="Your name">
+            <button onclick="submitName()" style="width: 100%;">Submit Score</button>
+        </div>
+    </div>
+
+    <div id="leaderboardModal">
+        <div class="modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h2 style="margin: 0;">Leaderboard</h2>
+                <span class="close-btn" onclick="closeLeaderboard()">×</span>
+            </div>
+            <div id="leaderboardContent">
+                <p>Loading leaderboard...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1>Nerd Typing Test</h1>
+        <button id="leaderboardBtn" onclick="showLeaderboard()">View Leaderboard</button>
+    </div>
+    
+    <div class="timer">Time: <span id="time">0.00</span>s</div>
+    <p class="instructions">Test how much you hate yourself by typing this as fast and accurately as you can:</p>
+    
+    <pre id="codeSnippet" style="color: #1d1d1f;">
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</pre>
+    
+    <textarea id="typingArea" placeholder="Start typing here..."></textarea>
+    <button id="checkButton" onclick="checkTyping()">Submit</button>
+    
+    <div id="result" class="result" style="display: none;">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">Time</div>
+                <div class="stat-value" id="resultTime">0.00s</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Accuracy</div>
+                <div class="stat-value" id="resultAccuracy">100%</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Correct</div>
+                <div class="stat-value" id="resultCorrect">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Errors</div>
+                <div class="stat-value" id="resultErrors">0</div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+<footer>
+    <div class="footer-content">
+        <p style="color: beige;">&copy; 2025 Nerd Typing Test. All rights reserved.</p>
+        <p style="color: beige;">Developed by Rico Euma O. Aban</p>
+    </div>
+</footer>
+</html>
